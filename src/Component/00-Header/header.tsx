@@ -1,7 +1,7 @@
 import React, { useState } from "react";
 import { useLocation, useNavigate } from "react-router-dom";
 import { Menu, X } from "lucide-react";
-// import logoImg from "../../assets/logo.png";
+import logoImg from "../../assets/logo.png";
 
 const navLinks = [
   { to: "/", label: "Home" },
@@ -26,9 +26,9 @@ const Header: React.FC = () => {
         
         {/* Logo */}
         <div className="flex items-center gap-3 cursor-pointer" onClick={() => navigate("/")}>
-          {/* <img src={logoImg} alt="UrbanNest" className="h-10 w-auto" /> */}
+          <img src={logoImg} alt="UrbanNest" className="h-10 w-auto" />
           <h1 className="text-white text-xl font-semibold tracking-wide">
-            UrbanNest
+            UrbanNest Realty Pvt Ltd
           </h1>
         </div>
 
@@ -96,5 +96,4 @@ const Header: React.FC = () => {
     </header>
   );
 };
-
 export default Header;

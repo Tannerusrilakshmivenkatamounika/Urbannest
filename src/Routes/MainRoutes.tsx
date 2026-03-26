@@ -3,7 +3,7 @@ import Header from "../Component/00-Header/header";
 import Footer from "../Component/01-Footer/footer";
 
 import Home from "../Pages/0-Home/Home";
-// import About from "../Pages/About/About";
+import About from "../Pages/02-About/About";
 // import Services from "../Pages/Services/Services";
 // import Blogs from "../Pages/Blogs/Blogs";
 // import Contact from "../Pages/Contact/Contact";
@@ -23,8 +23,8 @@ const Mainroutes: React.FC = () => {
       <main>
         <Routes>
           <Route path="/" element={<Home />} />
-          {/* <Route path="/about" element={<About />} />
-          <Route path="/services" element={<Services />} />
+          <Route path="/about" element={<About />} />
+          {/* <Route path="/services" element={<Services />} />
           <Route path="/blogs" element={<Blogs />} />
           <Route path="/contact" element={<Contact />} />
           <Route path="/achievements" element={<Achievements />} />
