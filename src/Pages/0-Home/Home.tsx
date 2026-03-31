@@ -1,8 +1,10 @@
 import React from "react";
 import heroImg from "../../assets/heroimg.webp"; // 👉 use your building image
 import { Home as HomeIcon, Building2, TrendingUp } from "lucide-react";
+import { useNavigate } from "react-router-dom";
 
 const Home: React.FC = () => {
+  const navigate = useNavigate();
   return (
     <>
       <section
@@ -42,7 +44,10 @@ const Home: React.FC = () => {
               className="flex-1 px-4 py-3 text-sm outline-none"
             />
 
-            <button className="bg-[#d4a017] text-black px-6 py-3 font-semibold hover:bg-[#b89014] transition">
+            <button
+              onClick={() => navigate("/properties")}
+              className="bg-[#d4a017] text-black px-6 py-3 font-semibold hover:bg-[#b89014] transition"
+            >
               Explore Properties
             </button>
           </div>
@@ -51,7 +56,7 @@ const Home: React.FC = () => {
       </section>
 
 
-{/* // ////////////////////////////////////////////////////////// */}
+      {/* // ////////////////////////////////////////////////////////// */}
 
       <section className="py-20 bg-[#f8f9fb]">
         <div className="max-w-6xl mx-auto px-4 text-center">
