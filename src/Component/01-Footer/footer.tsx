@@ -57,15 +57,37 @@ const Footer: React.FC = () => {
           </div>
 
           {/* Services */}
-          <div>
-            <h3 className="text-lg font-semibold mb-4">Services</h3>
-            <ul className="space-y-3 text-gray-300 text-sm">
-              <li><Link to="#" className="hover:text-[#d4a017]">Commercial Leasing</Link></li>
-              <li><Link to="#" className="hover:text-[#d4a017]">Property Management</Link></li>
-              <li><Link to="#" className="hover:text-[#d4a017]">Investment Advisory</Link></li>
-              <li><Link to="#" className="hover:text-[#d4a017]">Market Research</Link></li>
-            </ul>
-          </div>
+         <div>
+  <h3 className="text-lg font-semibold mb-4">Services</h3>
+
+  <ul className="space-y-3 text-gray-300 text-sm">
+
+    <li>
+      <Link to="/Services" className="hover:text-[#d4a017]">
+        Commercial Leasing
+      </Link>
+    </li>
+
+    <li>
+      <Link to="/Services" className="hover:text-[#d4a017]">
+        Property Management
+      </Link>
+    </li>
+
+    <li>
+      <Link to="/Services" className="hover:text-[#d4a017]">
+        Investment Advisory
+      </Link>
+    </li>
+
+    <li>
+      <Link to="/Services" className="hover:text-[#d4a017]">
+        Market Research
+      </Link>
+    </li>
+
+  </ul>
+</div>
 
           {/* Newsletter */}
           <div>
