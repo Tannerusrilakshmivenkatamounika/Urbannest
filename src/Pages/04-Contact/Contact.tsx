@@ -11,7 +11,7 @@ const Contact: React.FC = () => {
         </h1>
 
         <p className="text-gray-500 max-w-2xl mx-auto mb-16">
-          Whether you have a question about courses, pricing, or anything else,
+          Whether you have a question about Services, pricing, or anything else,
           our team is ready to help you.
         </p>
 
@@ -60,7 +60,7 @@ const Contact: React.FC = () => {
           <div className="bg-yellow-100 border-l-4 border-yellow-500 p-8 rounded-xl shadow">
             <h3 className="text-xl font-semibold text-[#0b1c39] mb-3">Call</h3>
             <p className="text-gray-600">
-              +41 76 760 39 21 <br /> +41 76 400 81 62
+              +91 8712184933 <br />
             </p>
           </div>
 

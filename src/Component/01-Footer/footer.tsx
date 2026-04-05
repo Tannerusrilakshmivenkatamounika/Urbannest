@@ -9,7 +9,7 @@ const Footer: React.FC = () => {
       <div className="max-w-7xl mx-auto px-6">
 
         {/* Top Section */}
-        <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-10">
+        <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-5 gap-10">
 
           {/* Logo + About */}
           <div>
@@ -88,7 +88,21 @@ const Footer: React.FC = () => {
 
   </ul>
 </div>
+<div>
+  <h3 className="text-lg font-semibold mb-4">Leadership</h3>
 
+  <ul className="space-y-2 text-gray-300 text-sm">
+    
+    <li className="text-white font-medium">
+      A Raja Reddy - Managing Director
+    </li>
+
+    <li>P Vamsi Kiran Reddy - Co-Founder</li>
+    
+    <li>Venkata Vasu - CEO</li>
+
+  </ul>
+</div>
           {/* Newsletter */}
           <div>
             <h3 className="text-lg font-semibold mb-4">Insights</h3>
