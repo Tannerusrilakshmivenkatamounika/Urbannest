@@ -1,12 +1,12 @@
 import React from "react";
-import heroImg from "../../assets/homeimg.avif"; // 👉 use your building image
+// import heroImg from "../../assets/homeimg.avif"; // 👉 use your building image
 import { Home as HomeIcon, Building2, TrendingUp } from "lucide-react";
 import { useNavigate } from "react-router-dom";
 import { motion } from "framer-motion";
 import { useState,useEffect } from "react";
 import { Search, User, DollarSign } from "lucide-react";
 import { useRef } from "react";
-import { ArrowLeft, ArrowRight } from "lucide-react";
+// import { ArrowLeft, ArrowRight } from "lucide-react";
 const expertiseSlides = [
   {
     tag: "EXPERTISE",
@@ -131,7 +131,7 @@ const Home: React.FC = () => {
     return () => clearInterval(interval);
   }, [current]);
 
- const [index, setIndex] = useState(0);
+ const [index] = useState(0);
 
   const [activeIndex, setActiveIndex] = useState(0);
   const cardRefs = useRef<(HTMLDivElement | null)[]>([]);
