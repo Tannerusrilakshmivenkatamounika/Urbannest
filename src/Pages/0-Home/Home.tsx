@@ -3,7 +3,7 @@ import React from "react";
 import { Home as HomeIcon, Building2, TrendingUp } from "lucide-react";
 import { useNavigate } from "react-router-dom";
 import { motion } from "framer-motion";
-import { useState,useEffect } from "react";
+import { useState, useEffect } from "react";
 import { Search, User, DollarSign } from "lucide-react";
 import { useRef } from "react";
 // import { ArrowLeft, ArrowRight } from "lucide-react";
@@ -110,7 +110,7 @@ const steps = [
 ];
 const Home: React.FC = () => {
   const [active, setActive] = useState<number | null>(null);
- 
+
   const [current, setCurrent] = useState(0);
   const [prev, setPrev] = useState<number | null>(null);
   const [zoomed, setZoomed] = useState(true);
@@ -131,7 +131,7 @@ const Home: React.FC = () => {
     return () => clearInterval(interval);
   }, [current]);
 
- const [index] = useState(0);
+  const [index] = useState(0);
 
   const [activeIndex, setActiveIndex] = useState(0);
   const cardRefs = useRef<(HTMLDivElement | null)[]>([]);
@@ -154,74 +154,74 @@ const Home: React.FC = () => {
 
   return (
     <>
-     <section className="relative w-full h-[60vh] sm:h-[70vh] md:h-[75vh] lg:h-[90vh] overflow-hidden">
+      <section className="relative w-full h-[60vh] sm:h-[70vh] md:h-[75vh] lg:h-[90vh] overflow-hidden">
 
-      {/* Slides */}
-      {heroSlides.map((slide, i) => (
-        <div
-          key={i}
-          className={`absolute inset-0 transition-opacity duration-800 ease-in-out
+        {/* Slides */}
+        {heroSlides.map((slide, i) => (
+          <div
+            key={i}
+            className={`absolute inset-0 transition-opacity duration-800 ease-in-out
             ${i === current ? "opacity-100 z-10" : "opacity-0 z-0"}
             ${i === prev ? "opacity-0 z-10" : ""}
           `}
-          style={{ transitionDuration: "800ms" }}
-        >
-          {/* Image with zoom */}
-          <div
-            className="absolute inset-0 bg-cover bg-center transition-transform ease-in-out"
-            style={{
-              backgroundImage: `url(${slide.img})`,
-              transform: i === current && zoomed ? "scale(1.08)" : "scale(1)",
-              transitionDuration: i === current ? "6000ms" : "800ms",
-            }}
-          />
-
-          {/* Overlay */}
-          <div className="absolute inset-0 bg-black/45" />
-        </div>
-      ))}
-
-      {/* Content — always on top */}
-      <div className="relative z-20 max-w-7xl mx-auto px-6 h-full flex flex-col justify-center">
-        <div key={current} className="animate-fadeSlideUp">
-          <p className="text-gray-300 text-sm tracking-widest uppercase mb-3">
-            {heroSlides[current].subtitle}
-          </p>
-
-          <h1 className="text-white font-poppins leading-tight text-3xl sm:text-4xl md:text-5xl lg:text-6xl xl:text-6xl mb-8 max-w-2xl">
-            {heroSlides[current].title}
-          </h1>
-
-          <button
-            onClick={() => navigate("/properties")}
-            className="bg-white text-[#0b1c39] px-6 py-3 rounded-md font-medium w-fit shadow hover:bg-gray-100 transition flex items-center gap-2"
+            style={{ transitionDuration: "800ms" }}
           >
-            Explore now →
-          </button>
-        </div>
-      </div>
+            {/* Image with zoom */}
+            <div
+              className="absolute inset-0 bg-cover bg-center transition-transform ease-in-out"
+              style={{
+                backgroundImage: `url(${slide.img})`,
+                transform: i === current && zoomed ? "scale(1.08)" : "scale(1)",
+                transitionDuration: i === current ? "6000ms" : "800ms",
+              }}
+            />
 
-      {/* Dot indicators */}
-      <div className="absolute bottom-8 left-1/2 -translate-x-1/2 z-20 flex gap-3">
-        {heroSlides.map((_, i) => (
-          <button
-            key={i}
-            onClick={() => {
-              setPrev(current);
-              setZoomed(false);
-              setTimeout(() => {
-                setCurrent(i);
-                setZoomed(true);
-                setPrev(null);
-              }, 800);
-            }}
-            className={`h-[3px] rounded-full transition-all duration-500
-              ${i === current ? "w-8 bg-white" : "w-4 bg-white/40"}`}
-          />
+            {/* Overlay */}
+            <div className="absolute inset-0 bg-black/45" />
+          </div>
         ))}
-      </div>
 
-    </section>
+        {/* Content — always on top */}
+        <div className="relative z-20 max-w-7xl mx-auto px-6 h-full flex flex-col justify-center">
+          <div key={current} className="animate-fadeSlideUp">
+            <p className="text-gray-300 text-sm tracking-widest uppercase mb-3">
+              {heroSlides[current].subtitle}
+            </p>
+
+            <h1 className="text-white font-poppins leading-tight text-3xl sm:text-4xl md:text-5xl lg:text-6xl xl:text-6xl mb-8 max-w-2xl">
+              {heroSlides[current].title}
+            </h1>
+
+            <button
+              onClick={() => navigate("/properties")}
+              className="bg-white text-[#0b1c39] px-6 py-3 rounded-md font-medium w-fit shadow hover:bg-gray-100 transition flex items-center gap-2"
+            >
+              Explore now →
+            </button>
+          </div>
+        </div>
+
+        {/* Dot indicators */}
+        <div className="absolute bottom-8 left-1/2 -translate-x-1/2 z-20 flex gap-3">
+          {heroSlides.map((_, i) => (
+            <button
+              key={i}
+              onClick={() => {
+                setPrev(current);
+                setZoomed(false);
+                setTimeout(() => {
+                  setCurrent(i);
+                  setZoomed(true);
+                  setPrev(null);
+                }, 800);
+              }}
+              className={`h-[3px] rounded-full transition-all duration-500
+              ${i === current ? "w-8 bg-white" : "w-4 bg-white/40"}`}
+            />
+          ))}
+        </div>
+
+      </section>
 
 
       <section className="bg-[#efe7df] py-24 space-y-24">
@@ -302,7 +302,7 @@ const Home: React.FC = () => {
         <div className="max-w-7xl mx-auto px-6 grid md:grid-cols-2 gap-12 items-center">
 
           <motion.div
-            variants={fadeRight}   // 👈 comes from RIGHT
+            variants={fadeRight}
             initial="hidden"
             whileInView="visible"
             transition={{ duration: 0.8 }}
@@ -336,205 +336,262 @@ const Home: React.FC = () => {
 
       </section>
       {/* /////////////////////////////////// */}
-    <section className="bg-[#f8f9fb] py-24">
-    {/* SECTION HEADER */}
-<div className="text-center mb-16">
+      <section className="bg-[#f8f9fb] py-24">
+        {/* SECTION HEADER */}
+        <div className="text-center mb-16">
 
-  {/* Small Label */}
-  <p className="text-sm tracking-[0.3em] text-gray-500 uppercase mb-4 font-medium">
-    Expertise
-  </p>
+          {/* Small Label */}
+          <p className="text-sm tracking-[0.3em] text-gray-500 uppercase mb-4 font-medium">
+            Expertise
+          </p>
 
-  {/* Main Heading */}
-  <h2 className="font-poppins text-3xl sm:text-4xl md:text-5xl font-semibold text-[#0b1c39] leading-snug">
-    Comprehensive Real Estate{" "}
-    <span className="text-red-500">Solutions</span>
-  </h2>
+          {/* Main Heading */}
+          <h2 className="font-poppins text-3xl sm:text-4xl md:text-5xl font-semibold text-[#0b1c39] leading-snug">
+            Comprehensive Real Estate{" "}
+            <span className="text-red-500">Solutions</span>
+          </h2>
 
-  {/* Optional Subtext */}
-  <p className="text-gray-500 mt-4 max-w-2xl mx-auto text-sm sm:text-base">
-    Delivering strategic insights and innovative solutions to shape the future of modern real estate.
-  </p>
+          {/* Optional Subtext */}
+          <p className="text-gray-500 mt-4 max-w-2xl mx-auto text-sm sm:text-base">
+            Delivering strategic insights and innovative solutions to shape the future of modern real estate.
+          </p>
 
-</div>
-      <div className="max-w-6xl mx-auto px-6 flex gap-16 items-start">
-
-        {/* LEFT — scrollable cards */}
-        <div className="flex-1 space-y-10">
-          {expertiseSlides.map((slide, i) => (
-            <div
-              key={i}
-             ref={scrollRef} 
-              className={`p-8 rounded-2xl border transition-all duration-500 cursor-pointer
-                ${activeIndex === i
-                  ? "bg-white border-yellow-400 shadow-lg -translate-x-1"
-                  : "bg-transparent border-gray-200 opacity-50"
-                }`}
-              onClick={() => setActiveIndex(i)}
-            >
-              <p className="text-yellow-600 text-xs font-semibold tracking-widest mb-3">
-                {slide.tag}
-              </p>
-
-              <div className="flex items-center gap-3 mb-4">
-                <div className={`w-10 h-10 rounded-xl flex items-center justify-center transition-colors duration-300
-                  ${activeIndex === i ? "bg-[#0b1c39] text-white" : "bg-gray-100 text-gray-500"}`}>
-                  {slide.icon}
-                </div>
-                <h3 className="text-2xl font-serif font-semibold text-[#0b1c39]">
-                  {slide.title} <span className="text-red-500">{slide.highlight}</span>
-                </h3>
-              </div>
-
-              <p className={`text-gray-500 text-sm leading-relaxed transition-all duration-500
-                ${activeIndex === i ? "max-h-40 opacity-100" : "max-h-0 opacity-0 overflow-hidden"}`}>
-                {slide.desc}
-              </p>
-
-              {activeIndex === i && (
-                <button className="mt-5 text-sm font-medium text-[#0b1c39] hover:text-yellow-600 transition">
-                  Learn more →
-                </button>
-              )}
-            </div>
-          ))}
         </div>
+        <div className="max-w-6xl mx-auto px-6 flex gap-16 items-start">
 
-        {/* RIGHT — sticky image */}
-        <div className="hidden md:block w-[480px] sticky top-28 self-start">
-          <div className="relative overflow-hidden rounded-2xl h-[480px]">
+          {/* LEFT — scrollable cards */}
+          <div className="flex-1 space-y-10">
             {expertiseSlides.map((slide, i) => (
-              <img
-                key={i}
-                src={slide.img}
-                alt={slide.title}
-                className={`absolute inset-0 w-full h-full object-cover transition-all duration-700 ease-in-out
-                  ${activeIndex === i ? "opacity-100 scale-100" : "opacity-0 scale-105"}`}
-              />
-            ))}
-          </div>
-
-          {/* Dot indicators on image */}
-          <div className="flex gap-2 mt-4 justify-center">
-            {expertiseSlides.map((_, i) => (
-              <button
-                key={i}
-                onClick={() => setActiveIndex(i)}
-                className={`h-[3px] rounded-full transition-all duration-400
-                  ${i === activeIndex ? "w-8 bg-[#0b1c39]" : "w-4 bg-gray-300"}`}
-              />
-            ))}
-          </div>
-        </div>
-
-      </div>
-    </section>
-      {/* //////////////////////////////////////////////////// */}
-
-
-
-
-
-    <section className="py-24 bg-[#f5f5f5]">
-  <div className="max-w-8xl mx-auto px-6 grid grid-cols-3 gap-12 text-center relative">
-
-    {/* Dashed connector line between boxes */}
-    <div className="absolute top-[44px] left-[calc(16.66%+10px)] right-[calc(16.66%+10px)] border-t-2 border-dashed border-gray-300 z-0" />
-
-    {steps.map((item) => (
-      <div key={item.id} className="flex flex-col items-center">
-
-        {/* Icon box with number badge */}
-        <div className="relative z-10">
-          <div className="absolute -top-3 -right-3 bg-black text-white w-7 h-7 flex items-center justify-center rounded-full text-xs font-semibold z-10">
-            {item.id}.
-          </div>
-          <div
-            onClick={() => setActive(item.id)}
-            className={`w-[90px] h-[90px] flex items-center justify-center rounded-xl border-2 border-dashed border-gray-300 cursor-pointer transition-colors duration-200
-              ${active === item.id ? "bg-gray-200" : "bg-white"}`}
-          >
-            {item.icon}
-          </div>
-        </div>
-
-        <h3 className="text-lg font-bold mt-8 mb-2 text-[#0b1c39]">
-          {item.title}
-        </h3>
-        <p className="text-gray-500 text-sm max-w-[200px] leading-relaxed">
-          {item.desc}
-        </p>
-
-      </div>
-    ))}
-
-  </div>
-</section>
-      {/* ////////////////////////////////////////////// */}
-       <section className="py-20 bg-[#f8f9fb]">
-
-      {/* HEADER */}
-      <div className="text-center mb-12">
-        <p className="text-sm tracking-widest text-orange-500 mb-2 uppercase">
-          Projects
-        </p>
-
-        <h2 className="font-poppins text-4xl text-[#0b1c39] font-semibold">
-          See Latest Projects
-        </h2>
-
-        <p className="text-gray-500 mt-2 text-lg">
-          For our client
-        </p>
-
-        <div className="w-16 h-[3px] bg-orange-500 mx-auto mt-4 rounded"></div>
-      </div>
-
-      {/* SLIDER */}
-      <div className="relative max-w-7xl mx-auto overflow-hidden">
-
-        {/* Images Wrapper */}
-        <div className="px-6 overflow-hidden">
-          <div
-            className="flex gap-4 transition-transform duration-700 ease-[cubic-bezier(0.22,1,0.36,1)]"
-            style={{
-              transform: `translateX(-${index * 280}px)`,
-            }}
-          >
-            {projects.map((item, i) => (
               <div
                 key={i}
-                className="relative min-w-[260px] h-[350px] rounded-xl overflow-hidden group cursor-pointer"
+                ref={scrollRef}
+                className={`p-8 rounded-2xl border transition-all duration-500 cursor-pointer
+                ${activeIndex === i
+                    ? "bg-white border-yellow-400 shadow-lg -translate-x-1"
+                    : "bg-transparent border-gray-200 opacity-50"
+                  }`}
+                onClick={() => setActiveIndex(i)}
               >
+                <p className="text-yellow-600 text-xs font-semibold tracking-widest mb-3">
+                  {slide.tag}
+                </p>
 
-                {/* Image */}
-                <img
-                  src={item.img}
-                  className="w-full h-full object-cover"
-                />
-
-                {/* Hover Overlay */}
-                <div className="absolute inset-0 bg-[#0b1c39]/80 opacity-0 group-hover:opacity-100 transition duration-500 flex flex-col justify-end p-6">
-
-                  <h3 className="text-white text-lg font-semibold mb-1">
-                    {item.title}
+                <div className="flex items-center gap-3 mb-4">
+                  <div className={`w-10 h-10 rounded-xl flex items-center justify-center transition-colors duration-300
+                  ${activeIndex === i ? "bg-[#0b1c39] text-white" : "bg-gray-100 text-gray-500"}`}>
+                    {slide.icon}
+                  </div>
+                  <h3 className="text-2xl font-serif font-semibold text-[#0b1c39]">
+                    {slide.title} <span className="text-red-500">{slide.highlight}</span>
                   </h3>
-
-                  <p className="text-orange-400 text-sm">
-                    {item.category}
-                  </p>
-
                 </div>
 
+                <p className={`text-gray-500 text-sm leading-relaxed transition-all duration-500
+                ${activeIndex === i ? "max-h-40 opacity-100" : "max-h-0 opacity-0 overflow-hidden"}`}>
+                  {slide.desc}
+                </p>
+
+                {activeIndex === i && (
+                  <button className="mt-5 text-sm font-medium text-[#0b1c39] hover:text-yellow-600 transition">
+                    Learn more →
+                  </button>
+                )}
               </div>
             ))}
           </div>
+
+          {/* RIGHT — sticky image */}
+          <div className="hidden md:block w-[480px] sticky top-28 self-start">
+            <div className="relative overflow-hidden rounded-2xl h-[480px]">
+              {expertiseSlides.map((slide, i) => (
+                <img
+                  key={i}
+                  src={slide.img}
+                  alt={slide.title}
+                  className={`absolute inset-0 w-full h-full object-cover transition-all duration-700 ease-in-out
+                  ${activeIndex === i ? "opacity-100 scale-100" : "opacity-0 scale-105"}`}
+                />
+              ))}
+            </div>
+
+            {/* Dot indicators on image */}
+            <div className="flex gap-2 mt-4 justify-center">
+              {expertiseSlides.map((_, i) => (
+                <button
+                  key={i}
+                  onClick={() => setActiveIndex(i)}
+                  className={`h-[3px] rounded-full transition-all duration-400
+                  ${i === activeIndex ? "w-8 bg-[#0b1c39]" : "w-4 bg-gray-300"}`}
+                />
+              ))}
+            </div>
+          </div>
+
+        </div>
+      </section>
+      {/* //////////////////////////////////////////////////// */}
+
+      <section className="py-24 bg-[#f5f5f5]">
+        <div className="max-w-8xl mx-auto px-6 grid grid-cols-3 gap-12 text-center relative">
+
+          {/* Dashed connector line between boxes */}
+          <div className="absolute top-[44px] left-[calc(16.66%+10px)] right-[calc(16.66%+10px)] border-t-2 border-dashed border-gray-300 z-0" />
+
+          {steps.map((item) => (
+            <div key={item.id} className="flex flex-col items-center">
+
+              {/* Icon box with number badge */}
+              <div className="relative z-10">
+                <div className="absolute -top-3 -right-3 bg-black text-white w-7 h-7 flex items-center justify-center rounded-full text-xs font-semibold z-10">
+                  {item.id}.
+                </div>
+                <div
+                  onClick={() => setActive(item.id)}
+                  className={`w-[90px] h-[90px] flex items-center justify-center rounded-xl border-2 border-dashed border-gray-300 cursor-pointer transition-colors duration-200
+              ${active === item.id ? "bg-gray-200" : "bg-white"}`}
+                >
+                  {item.icon}
+                </div>
+              </div>
+
+              <h3 className="text-lg font-bold mt-8 mb-2 text-[#0b1c39]">
+                {item.title}
+              </h3>
+              <p className="text-gray-500 text-sm max-w-[200px] leading-relaxed">
+                {item.desc}
+              </p>
+
+            </div>
+          ))}
+
+        </div>
+      </section>
+      {/* ////////////////////////////////////////////// */}
+      <section className="py-20 bg-[#f8f9fb]">
+
+        {/* HEADER */}
+        <div className="text-center mb-12">
+          <p className="text-sm tracking-widest text-orange-500 mb-2 uppercase">
+            Projects
+          </p>
+
+          <h2 className="font-poppins text-4xl text-[#0b1c39] font-semibold">
+            See Latest Projects
+          </h2>
+
+          <p className="text-gray-500 mt-2 text-lg">
+            For our client
+          </p>
+
+          <div className="w-16 h-[3px] bg-orange-500 mx-auto mt-4 rounded"></div>
         </div>
 
-       
+        {/* SLIDER */}
+        <div className="relative max-w-7xl mx-auto overflow-hidden">
 
-      </div>
-    </section>
+          {/* Images Wrapper */}
+          <div className="px-6 overflow-hidden">
+            <div
+              className="flex gap-4 transition-transform duration-700 ease-[cubic-bezier(0.22,1,0.36,1)]"
+              style={{
+                transform: `translateX(-${index * 280}px)`,
+              }}
+            >
+              {projects.map((item, i) => (
+                <div
+                  key={i}
+                  className="relative min-w-[260px] h-[350px] rounded-xl overflow-hidden group cursor-pointer"
+                >
+
+                  {/* Image */}
+                  <img
+                    src={item.img}
+                    className="w-full h-full object-cover"
+                  />
+
+                  {/* Hover Overlay */}
+                  <div className="absolute inset-0 bg-[#0b1c39]/80 opacity-0 group-hover:opacity-100 transition duration-500 flex flex-col justify-end p-6">
+
+                    <h3 className="text-white text-lg font-semibold mb-1">
+                      {item.title}
+                    </h3>
+
+                    <p className="text-orange-400 text-sm">
+                      {item.category}
+                    </p>
+
+                  </div>
+
+                </div>
+              ))}
+            </div>
+          </div>
+
+
+
+        </div>
+      </section>
+      {/* ////// */}
+      <section
+        className="relative w-full h-[65vh] bg-cover bg-center"
+        style={{
+          backgroundImage:
+            "url('https://images.unsplash.com/photo-1568605114967-8130f3a36994')",
+        }}
+      >
+
+        {/* DARK OVERLAY */}
+        <div className="absolute inset-0 bg-white/10"></div>
+
+        {/* CONTENT */}
+        <div className="relative z-10 max-w-7xl mx-auto px-6 h-full flex flex-col justify-center">
+
+          {/* SMALL TEXT */}
+          <p className="text-white/80 text-sm tracking-widest mb-4 uppercase">
+            Discover More
+          </p>
+
+          {/* MAIN HEADING */}
+          <h1 className="text-white font-poppins leading-tight
+          text-4xl sm:text-5xl md:text-6xl lg:text-7xl font-semibold max-w-3xl">
+
+            Your Real Estate{" "}
+            <span className="italic font-light">Journey</span> <br />
+
+            Starts{" "}
+            <span className="italic font-light">Here</span>
+          </h1>
+
+          {/* RIGHT SIDE CONTENT */}
+          <div className="mt-8 max-w-xl ml-auto text-right">
+
+            <p className="text-white/80 text-sm sm:text-base mb-6">
+              Begin your property search now and access exclusive listings,
+              expert advice, and personalized recommendations to find your
+              perfect match.
+            </p>
+
+            {/* BUTTONS */}
+            <div className="flex gap-4 justify-end flex-wrap">
+
+              <button
+                onClick={() => navigate("/contact")}
+                className="bg-white text-black px-6 py-3 text-sm font-medium hover:bg-gray-200 transition"
+              >
+                Contact Us →
+              </button>
+
+              <button
+                onClick={() => navigate("/properties")}
+                className="border border-white text-white px-6 py-3 text-sm font-medium hover:bg-white hover:text-black transition"
+              >
+                View Listing →
+              </button>
+
+            </div>
+          </div>
+        </div>
+      </section>
     </>
   );
 };
