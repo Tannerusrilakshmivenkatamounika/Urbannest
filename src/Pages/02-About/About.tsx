@@ -11,7 +11,7 @@ const team = [
   },
   {
     name: "P. Vamsi Kiran Reddy",
-    role: "Co-Founder",
+    role: "Founder",
     // img: "https://i.pravatar.cc/400?img=11",
     desc: "Passionate about transforming real estate experiences, he brings a modern approach to business development and client engagement.",
   },
