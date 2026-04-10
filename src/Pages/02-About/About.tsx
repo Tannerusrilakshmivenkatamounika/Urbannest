@@ -1,5 +1,5 @@
 import aboutImg from "../../assets/abtimg.jpg";
-import React, { useState } from "react";
+import React from "react";
 import img1 from "../../assets/sbout/image.png";
 import img from "../../assets/sbout/abt.jpg"
 const team = [
@@ -35,47 +35,47 @@ const team = [
   },
 ];
 
-const testimonials = [
-  {
-    name: "Sophia Williams",
-    role: "Home Buyer",
-    img: "https://i.pravatar.cc/150?img=47",
-    text: "UrbanNest transformed our property search into a seamless experience. Their team's professionalism and market knowledge are truly unmatched.",
-  },
-  {
-    name: "Emma Johnson",
-    role: "Property Investor",
-    img: "https://i.pravatar.cc/150?img=49",
-    text: "Working with UrbanNest was the best decision we made. They understood our vision and delivered a space that perfectly aligns with our business goals.",
-  },
-  {
-    name: "Olivia Martinez",
-    role: "Business Owner",
-    img: "https://i.pravatar.cc/150?img=44",
-    text: "We are thrilled with the results! UrbanNest's personalized service helped us streamline our search and enhance our investment portfolio.",
-  },
-  {
-    name: "James Parker",
-    role: "Real Estate Client",
-    img: "https://i.pravatar.cc/150?img=33",
-    text: "From the first consultation to closing the deal, every step was handled with care and expertise. I couldn't recommend them more highly.",
-  },
-  {
-    name: "Liam Chen",
-    role: "Commercial Tenant",
-    img: "https://i.pravatar.cc/150?img=25",
-    text: "Their data-driven approach and deep market insights helped us make the right investment at the right time. Exceptional service throughout.",
-  },
-];
+// const testimonials = [
+//   {
+//     name: "Sophia Williams",
+//     role: "Home Buyer",
+//     img: "https://i.pravatar.cc/150?img=47",
+//     text: "UrbanNest transformed our property search into a seamless experience. Their team's professionalism and market knowledge are truly unmatched.",
+//   },
+//   {
+//     name: "Emma Johnson",
+//     role: "Property Investor",
+//     img: "https://i.pravatar.cc/150?img=49",
+//     text: "Working with UrbanNest was the best decision we made. They understood our vision and delivered a space that perfectly aligns with our business goals.",
+//   },
+//   {
+//     name: "Olivia Martinez",
+//     role: "Business Owner",
+//     img: "https://i.pravatar.cc/150?img=44",
+//     text: "We are thrilled with the results! UrbanNest's personalized service helped us streamline our search and enhance our investment portfolio.",
+//   },
+//   {
+//     name: "James Parker",
+//     role: "Real Estate Client",
+//     img: "https://i.pravatar.cc/150?img=33",
+//     text: "From the first consultation to closing the deal, every step was handled with care and expertise. I couldn't recommend them more highly.",
+//   },
+//   {
+//     name: "Liam Chen",
+//     role: "Commercial Tenant",
+//     img: "https://i.pravatar.cc/150?img=25",
+//     text: "Their data-driven approach and deep market insights helped us make the right investment at the right time. Exceptional service throughout.",
+//   },
+// ];
 
 const About: React.FC = () => {
-  const [activeTestimonial, setActiveTestimonial] = useState(1);
+  // const [activeTestimonial, setActiveTestimonial] = useState(1);
 
-  const visibleTestimonials = [
-    testimonials[(activeTestimonial - 1 + testimonials.length) % testimonials.length],
-    testimonials[activeTestimonial],
-    testimonials[(activeTestimonial + 1) % testimonials.length],
-  ];
+  // const visibleTestimonials = [
+  //   testimonials[(activeTestimonial - 1 + testimonials.length) % testimonials.length],
+  //   testimonials[activeTestimonial],
+  //   testimonials[(activeTestimonial + 1) % testimonials.length],
+  // ];
 
   return (
     <>
