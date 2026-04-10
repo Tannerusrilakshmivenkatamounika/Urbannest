@@ -227,10 +227,10 @@ const About: React.FC = () => {
       </section>
 
       {/* ── 4. TESTIMONIALS ── */}
-      <section className="py-24 bg-white">
+      {/* <section className="py-24 bg-white">
         <div className="max-w-7xl mx-auto px-6">
 
-          {/* Header */}
+          
           <div className="text-center mb-14">
             <p className="text-red-500 text-sm font-semibold tracking-widest uppercase mb-3">
               Testimonials
@@ -240,7 +240,6 @@ const About: React.FC = () => {
             </h2>
           </div>
 
-          {/* Cards */}
           <div className="grid md:grid-cols-3 gap-6">
             {visibleTestimonials.map((t, i) => (
               <div
@@ -256,19 +255,16 @@ const About: React.FC = () => {
                     : "bg-[#f5f0eb] hover:bg-[#efe7df] hover:scale-[1.01]"
                   }`}
               >
-                {/* Stars */}
                 <div className="flex gap-1 mb-6">
                   {[...Array(5)].map((_, s) => (
                     <span key={s} className="text-yellow-400 text-lg">★</span>
                   ))}
                 </div>
 
-                {/* Quote text */}
                 <p className="text-gray-600 text-sm leading-relaxed mb-8 flex-1">
                   {t.text}
                 </p>
 
-                {/* Avatar */}
                 <div className={`w-16 h-16 rounded-full overflow-hidden border-4 mb-3
                   ${i === 1 ? "border-red-400" : "border-[#e9dfcf]"}`}>
                   <img src={t.img} alt={t.name} className="w-full h-full object-cover" />
@@ -279,14 +275,12 @@ const About: React.FC = () => {
                   {t.role}
                 </p>
 
-                {/* Bottom-right corner fold effect */}
                 <div className={`absolute bottom-0 right-0 w-10 h-10 rounded-tl-3xl rounded-br-3xl
                   ${i === 1 ? "bg-red-400/20" : "bg-[#e9dfcf]"}`} />
               </div>
             ))}
           </div>
 
-          {/* Navigation dots */}
           <div className="flex justify-center gap-3 mt-10">
             {testimonials.map((_, i) => (
               <button
@@ -298,7 +292,7 @@ const About: React.FC = () => {
             ))}
           </div>
         </div>
-      </section>
+      </section> */}
     </>
   );
 };

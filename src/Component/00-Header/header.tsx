@@ -4,7 +4,7 @@ import { Menu, X, Search } from "lucide-react";
 import logoImg from "../../assets/logo.png";
 
 const navLinks = [
-  { to: "/properties", label: "Properties" },
+  // { to: "/properties", label: "Properties" },
   { to: "/services", label: "Services" },
   { to: "/about", label: "About" },
   { to: "/contact", label: "Contact" },
